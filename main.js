@@ -13,8 +13,8 @@ app.get('/arbitr/:id', function (req, res) {
   //res.send('Hello World!');
 });
  
-app.listen(PORT, function () {
-  console.log('Example app listening on port ' + PORT + '!');
+app.listen(process.env.PORT, function () {
+  console.log('Example app listening on port ' + process.env.PORT + '!');
 });
  
 function getKadArbitr(pUID, res) {
