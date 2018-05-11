@@ -42,8 +42,8 @@ function getKadArbitr(pUID, res) {
                 console.log('start');
                 needle.get( myURL, options, function (err, res2){
                                //results.push(res2.body);
-                               console.log(err);
-                               console.log(res2.body);
+                 //              console.log(err);
+                //               console.log(res2.body);
                
                 try { 
         var $ = cheerio.load(res2.body);                                                    
