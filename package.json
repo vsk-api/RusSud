@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node main.js"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
@@ -11,7 +11,7 @@
     "needle": "^2.2.1"
   },
   "description": "arbitr.ru parser",
-  "main": "app.js",
+  "main": "main.js",
   "devDependencies": {},
   "author": "osirik",
   "license": "ISC"
