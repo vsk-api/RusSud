@@ -1,40 +1,59 @@
-'use strict';
-
-const net = require('net');
-const http = require('http');
-
-const PROXY_PORT = 3080;
-const HTTP_SERVER_PORT = 4080;
-
-let proxy = net.createServer(socket => {
-    socket.on('data', message => {
-        console.log('---PROXY- got message', message.toString());
-
-        let serviceSocket = new net.Socket();
-
-        serviceSocket.connect(HTTP_SERVER_PORT, 'localhost', () => {
-            console.log('---PROXY- Sending message to server');
-            serviceSocket.write(message);
-        });
-
-        serviceSocket.on('data', data => {
-            console.log('---PROXY- Receiving message from server', data.toString());
-            socket.write(data);
-        });
-    });
+var cheerio = require('cheerio');
+var needle = require('needle');
+ 
+var express = require('express');
+var app = express();
+ 
+app.get('/', function (req, res) {
+  res.send('Hello World!');
 });
-
-let httpServer = http.createServer((req, res) => {
-    switch (req.url) {
-        case '/':
-            res.writeHead(200, {'Content-Type': 'text/html'});
-            res.end('<html><body><p>Ciao!</p></body></html>');
-            break;
-        default:
-            res.writeHead(404, {'Content-Type': 'text/plain'});
-            res.end('404 Not Found');
-    }
+ 
+app.get('/arbitr/:id', function (req, res) {
+  getKadArbitr( req.params.id, res );
+  //res.send('Hello World!');
 });
-
-proxy.listen(PROXY_PORT);
-httpServer.listen(HTTP_SERVER_PORT);
+ 
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
+});
+ 
+function getKadArbitr(pUID, res) {
+   
+                var vData =[];
+                var myURL = 'http://kad.arbitr.ru/Card/' + pUID;
+ 
+                var options = {
+                               headers:{
+                               'Host': 'kad.arbitr.ru',
+                               'Connection': 'keep-alive',
+                               'Accept': '*/*',
+                               'Origin': 'http://kad.arbitr.ru',
+                               'x-date-format': 'iso',
+                               'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
+                               'Content-Type': 'text/*; charset=utf-8',
+                               'Referer': 'http://kad.arbitr.ru/',
+                               'Accept-Encoding': 'gzip, deflate',
+                               'Accept-Language': 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'
+                               }
+                }
+               
+                var case_status = "not found";
+               
+                console.log('start');
+                needle.get( myURL, options, function (err, res2){
+                               //results.push(res2.body);
+                               console.log(err);
+                               console.log(res2.body);
+               
+                try { 
+        var $ = cheerio.load(res2.body);                                                    
+                              
+                               case_status = $('div[class=b-case-header-desc]').text().trim();
+                               res.send(case_status);
+                              
+                } catch (err) {}  
+                               console.log(err);
+ 
+                });
+               
+}
