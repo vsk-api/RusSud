@@ -9,7 +9,7 @@ app.get('/', function (req, res) {
 });
  
 app.get('/stop', function (req, res) {
- process.exit(1); 
+ process.exit(143); 
 });
 
 app.get('/arbitr/:id', function (req, res) {
