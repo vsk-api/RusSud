@@ -8,6 +8,10 @@ app.get('/', function (req, res) {
   res.send('Hello World!');
 });
  
+app.get('/stop', function (req, res) {
+ process.exit(1); 
+});
+
 app.get('/arbitr/:id', function (req, res) {
   getKadArbitr( req.params.id, res );
   //res.send('Hello World!');
