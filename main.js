@@ -46,14 +46,14 @@ function getKadArbitr(pUID, res) {
                 //               console.log(res2.body);
                
                 try { 
-res.send(res2.body);                 
-//                    var $ = cheerio.load(res2.body);                                                    
+                 
+                    var $ = cheerio.load(res2.body);                                                    
                               
-  //                  case_status = $('div[class=b-case-header-desc]').text().trim();
-     //               res.send(case_status);
+                    case_status = $('div[class=b-case-header-desc]').text().trim();
+                    res.send(case_status);
                             
                 } catch (err) {
-                  res.send(err);
+                    res.send(err);
                 }  
                                console.log(err);
  
