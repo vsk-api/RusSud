@@ -9,6 +9,8 @@
     "cheerio": "^1.0.0-rc.2",
     "express": "~4.14.1",
     "needle": "^2.2.1"
+    "nodemailer": "^2.7.2",
+    "body-parser": "^1.0.0"
   },
   "description": "arbitr.ru parser",
   "main": "main.js",
