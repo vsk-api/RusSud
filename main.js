@@ -38,7 +38,7 @@ function sendM(pBody, res) {
  console.log('sendM#3');
 transporter.sendMail(mailOptions, function(error, info){
   if (error) {
-    res.send(error);
+    res.send('Error' + error);
   } else {
     res.send('Email sent: ' + info.response);
   }
