@@ -4,7 +4,7 @@ var app = express();
 var nodemailer = require('nodemailer');
  
 app.get('/', function (req, res) {
-  res.send('Hello World!');
+  res.send('Hello World 2!');
 });
  
 app.get('/stop', function (req, res) {
