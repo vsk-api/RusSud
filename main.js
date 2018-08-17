@@ -4,15 +4,12 @@ var app = express();
 var nodemailer = require('nodemailer');
  
 app.get('/', function (req, res) {
-  res.send('Hello World 2!');
+  res.send('Hello World 3!');
 });
  
-app.get('/stop', function (req, res) {
- process.exit(143); 
-});
 
 app.get('/send', function (req, res) {
- sendM("aasdas"); 
+ sendM("test"); 
 });
 
 
