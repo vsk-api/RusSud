@@ -4,7 +4,7 @@ var app = express();
 var nodemailer = require('nodemailer');
  
 app.get('/', function (req, res) {
-  res.send('Hello World 4!');
+  res.send('Hello World 5!');
 });
  
 
@@ -27,7 +27,7 @@ function sendM(pBody) {
  });
 
  var mailOptions = {
-  from: 'hz@gmail.com',
+  from: 'vskpartapi@gmail.com',
   to: 'sirik@vsk.ru',
   subject: 'Sending Email using Node.js',
   text: 'That was easy!'
