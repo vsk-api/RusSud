@@ -1,7 +1,3 @@
-var cheerio = require('cheerio');
-var needle = require('needle');
- 
-
 
 var express = require('express');
 var app = express();
