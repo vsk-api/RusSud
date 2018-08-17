@@ -15,8 +15,19 @@ app.get('/send', function (req, res) {
 });
 
 app.post('/callbacks', function (req, res) { 
- sendM("test", res); 
+
+var body = '';
+ req.on('data', function (data) {
+  body += data;
+ });
+
+ request.on('end', function () {
+   sendM( body , res);
+  });
 });
+
+
+
 app.listen(process.env.PORT, function () {
   console.log('Example app listening on port ' + process.env.PORT + '!');
 });
