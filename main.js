@@ -31,7 +31,7 @@ function sendM(pBody, res) {
  console.log('sendM#2');
  var mailOptions = {
   from: 'vskpartapi@gmail.com',
-  to: 'sirik@vsk.ru',
+  to: 'oleg.sirik.mac@gmail.com',
   subject: 'Sending Email using Node.js',
   text: 'That was easy!'
 };
