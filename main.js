@@ -14,14 +14,14 @@ app.get('/send', function (req, res) {
  sendM("test", res); 
 });
 
-app.post('/callbacks', function (req, res) { 
+app.post('/callback', function (req, res) { 
 
 var body = '';
  req.on('data', function (data) {
   body += data;
  });
 
- request.on('end', function () {
+ req.on('end', function () {
    sendM( body , res);
   });
 });
