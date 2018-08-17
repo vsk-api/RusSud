@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
 
 app.get('/send', function (req, res) {
  console.log('send1');
- sendM("test"); 
+ sendM("test", res); 
 });
 
 
@@ -19,7 +19,7 @@ app.listen(process.env.PORT, function () {
   console.log('Example app listening on port ' + process.env.PORT + '!');
 });
  
-function sendM(pBody) {
+function sendM(pBody, res) {
  console.log('sendM#1');
  var transporter = nodemailer.createTransport({
   service: 'gmail',
