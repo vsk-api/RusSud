@@ -21,7 +21,7 @@ function sendM(pBody) {
  var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'vsppartapi@gmail.com',
+    user: 'vskpartapi@gmail.com',
     pass: '!Q2w3e$R'
   }
  });
