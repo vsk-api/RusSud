@@ -21,7 +21,7 @@ function sendM(pBody) {
  var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'vsp_partapi@gmail.com',
+    user: 'vsppartapi@gmail.com',
     pass: '!Q2w3e$R'
   }
  });
@@ -35,9 +35,10 @@ function sendM(pBody) {
 
 transporter.sendMail(mailOptions, function(error, info){
   if (error) {
-    console.log(error);
+    res.send(error);
   } else {
-    console.log('Email sent: ' + info.response);
+    res.send('Email sent: ' + info.response);
   }
-});               
+});    
+ 
 }
