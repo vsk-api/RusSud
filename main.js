@@ -20,32 +20,7 @@ app.get('/arbitr/:id', function (req, res) {
   //res.send('Hello World!');
 });
 
-app.post('/sendmail', function (req, res) {
-      let transporter = nodeMailer.createTransport({
-          host: 'smtp.gmail.com',
-          port: 465,
-          secure: true,
-          auth: {
-              user: 'vsk.partapi@gmail.com',
-              pass: '!Q2w3e$R'
-          }
-      });
-      let mailOptions = {
-          from: '"Test" <xvsk.partapi@gmail.com>', // sender address
-          to: req.body.to, // list of receivers
-          subject: req.body.subject, // Subject line
-          text: req.body.body, // plain text body
-          html: '<b>NodeJS Email Tutorial</b>' // html body
-      };
 
-      transporter.sendMail(mailOptions, (error, info) => {
-          if (error) {
-              return console.log(error);
-          }
-          console.log('Message %s sent: %s', info.messageId, info.response);
-              res.render('index');
-          });
-      });
 app.listen(process.env.PORT, function () {
   console.log('Example app listening on port ' + process.env.PORT + '!');
 });
