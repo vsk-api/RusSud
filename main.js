@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
  
 
 app.get('/send', function (req, res) {
- sendM("test", res); 
+ sendM('sirik@vsk.ru', 'test', res); 
 });
 
 app.post('/callback', function (req, res) { 
@@ -21,17 +21,28 @@ var body = '';
  });
 
  req.on('end', function () {
-   sendM( body , res);
+   sendM( 'sirik@vsk.ru', body , res);
   });
 });
 
+app.post('/callback2', function (req, res) { 
+
+var body = '';
+ req.on('data', function (data) {
+  body += data;
+ });
+
+ req.on('end', function () {
+   sendM( 'oleg.sirik.mac@gmail.com', body , res);
+  });
+});
 
 
 app.listen(process.env.PORT, function () {
   console.log('Example app listening on port ' + process.env.PORT + '!');
 });
  
-function sendM(pBody, res) {
+function sendM(pTo, pBody, res) {
  
  var transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -43,7 +54,7 @@ function sendM(pBody, res) {
  
  var mailOptions = {
   from: 'vskpartapi@gmail.com',
-  to: 'oleg.sirik.mac@gmail.com',
+  to: pTo,
   subject: 'Sending Email using Node.js',
   text: pBody
 };
