@@ -10,7 +10,6 @@ app.get('/', function (req, res) {
  
 
 app.get('/send', function (req, res) {
- console.log('send1');
  sendM("test", res); 
 });
 
@@ -33,7 +32,7 @@ app.listen(process.env.PORT, function () {
 });
  
 function sendM(pBody, res) {
- console.log('sendM#1');
+ 
  var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -41,14 +40,14 @@ function sendM(pBody, res) {
     pass: '!Q2w3e$R'
   }
  });
- console.log('sendM#2');
+ 
  var mailOptions = {
   from: 'vskpartapi@gmail.com',
   to: 'oleg.sirik.mac@gmail.com',
   subject: 'Sending Email using Node.js',
-  text: 'That was easy!'
+  text: pBody
 };
- console.log('sendM#3');
+ 
 transporter.sendMail(mailOptions, function(error, info){
   if (error) {
     res.send('Error' + error);
