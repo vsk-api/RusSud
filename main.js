@@ -3,12 +3,14 @@ var express = require('express');
 var app = express();
 var nodemailer = require('nodemailer');
  
+
 app.get('/', function (req, res) {
   res.send('Hello World 6!');
 });
  
 
 app.get('/send', function (req, res) {
+ console.log('send1');
  sendM("test"); 
 });
 
@@ -18,6 +20,7 @@ app.listen(process.env.PORT, function () {
 });
  
 function sendM(pBody) {
+ console.log('sendM#1');
  var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -25,14 +28,14 @@ function sendM(pBody) {
     pass: '!Q2w3e$R'
   }
  });
-
+ console.log('sendM#2');
  var mailOptions = {
   from: 'vskpartapi@gmail.com',
   to: 'sirik@vsk.ru',
   subject: 'Sending Email using Node.js',
   text: 'That was easy!'
 };
-
+ console.log('sendM#3');
 transporter.sendMail(mailOptions, function(error, info){
   if (error) {
     res.send(error);
