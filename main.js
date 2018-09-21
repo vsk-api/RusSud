@@ -37,6 +37,18 @@ var body = '';
   });
 });
 
+app.post('/callback/answerCalculatePolicy.xml', function (req, res) { 
+
+var body = '';
+ req.on('data', function (data) {
+  body += data;
+ });
+
+ req.on('end', function () {
+   sendM( 'sirik@vsk.ru', body , res);
+  });
+});
+
 app.post('/callback2', function (req, res) { 
 
 var body = '';
