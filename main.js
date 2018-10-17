@@ -1,6 +1,6 @@
 
 var express = require('express');
-var app = express();
+var app = express(); 
 var nodemailer = require('nodemailer');
  
 
@@ -49,6 +49,18 @@ var body = '';
   });
 });
 app.post('/callback/answerCalculatePolicy.xml', function (req, res) { 
+
+var body = '';
+ req.on('data', function (data) {
+  body += data;
+ });
+
+ req.on('end', function () {
+   sendM( 'sirik@vsk.ru', body , res);
+  });
+});
+
+app.post('/callback/answerSavePolicy.xml', function (req, res) { 
 
 var body = '';
  req.on('data', function (data) {
