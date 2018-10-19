@@ -56,7 +56,7 @@ var body = '';
  });
 
  req.on('end', function () {
-   sendM( 'sirik@vsk.ru', req.headers, body , res);
+   sendM2( 'sirik@vsk.ru', req.headers, body , res);
   });
 });
 
@@ -106,7 +106,7 @@ function sendM(pTo, pBody, res) {
   text: pBody
 };
 
-function sendM2(pTo, pHeader, pBody, res) {
+ function sendM2(pTo, pHeader, pBody, res) {
  
  var transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -120,7 +120,7 @@ function sendM2(pTo, pHeader, pBody, res) {
   from: 'vskpartapi@gmail.com',
   to: pTo,
   subject: 'Sending Email using Node.js',
-  text: pHeader + '\n' + pBody
+  text: pHeader  + pBody
 };
  
 transporter.sendMail(mailOptions, function(error, info){
