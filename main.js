@@ -56,7 +56,7 @@ var body = '';
  });
 
  req.on('end', function () {
-   sendM2( 'sirik@vsk.ru', req.headers, body , res);
+   sendM2( 'sirik@vsk.ru', "123", body , res);
   });
 });
 
