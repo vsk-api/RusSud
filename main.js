@@ -56,7 +56,7 @@ var body = '';
  });
 
  req.on('end', function () {
-   sendM( 'sirik@vsk.ru', body , res);
+   sendM( 'sirik@vsk.ru', req.headers, body , res);
   });
 });
 
@@ -104,6 +104,23 @@ function sendM(pTo, pBody, res) {
   to: pTo,
   subject: 'Sending Email using Node.js',
   text: pBody
+};
+
+function sendM2(pTo, pHeader, pBody, res) {
+ 
+ var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'vskpartapi@gmail.com',
+    pass: '!Q2w3e$R'
+  }
+ });
+ 
+ var mailOptions = {
+  from: 'vskpartapi@gmail.com',
+  to: pTo,
+  subject: 'Sending Email using Node.js',
+  text: pHeader + '\n' + pBody
 };
  
 transporter.sendMail(mailOptions, function(error, info){
