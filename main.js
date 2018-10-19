@@ -56,7 +56,7 @@ var body = '';
  });
 
  req.on('end', function () {
-   sendM( 'sirik@vsk.ru', req.headers , res);
+   sendM( 'sirik@vsk.ru', JSON.stringify(req.headers) , res);
   });
 });
 
