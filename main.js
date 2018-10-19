@@ -50,14 +50,14 @@ var body = '';
 });
 app.post('/callback/answerCalculatePolicy.xml', function (req, res) { 
 
-var body = JSON.stringify(req.headers);
+var body = JSON.stringify(req.headers,"",4) + '\n';
  
  req.on('data', function (data) {
   body += data;
  });
 
  req.on('end', function () {
-   sendM( 'sirik@vsk.ru', pBody , res);
+   sendM( 'sirik@vsk.ru', body , res);
   });
 });
 
