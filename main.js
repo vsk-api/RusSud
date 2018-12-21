@@ -85,6 +85,17 @@ var body = JSON.stringify(req.headers,"",4) + '\n';
   });
 });
 
+app.post('/callback/', function (req, res) { 
+
+var body = JSON.stringify(req.headers,"",4) + '\n';
+ req.on('data', function (data) {
+  body += data;
+ });
+
+ req.on('end', function () {
+   sendM( 'sirik@vsk.ru', body , res);
+  });
+});
 
 app.post('/callback2', function (req, res) { 
 
