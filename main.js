@@ -63,7 +63,7 @@ var body = JSON.stringify(req.headers,"",4) + '\n';
 
 app.post('/callback/answerSavePolicy.xml', function (req, res) { 
 
-var body = '';
+var body = JSON.stringify(req.headers,"",4) + '\n';
  req.on('data', function (data) {
   body += data;
  });
@@ -75,7 +75,7 @@ var body = '';
 
 app.post('/callback/answerBuyPolicy.xml', function (req, res) { 
 
-var body = '';
+var body = JSON.stringify(req.headers,"",4) + '\n';
  req.on('data', function (data) {
   body += data;
  });
