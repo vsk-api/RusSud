@@ -25,6 +25,11 @@ var body = '';
   });
 });
 
+app.get('/callback', function (req, res) {
+ sendM('sirik@vsk.ru', 'callback', res); 
+});
+
+
 app.post('/callback/answerLogin.xml', function (req, res) { 
 
 var body = '';
