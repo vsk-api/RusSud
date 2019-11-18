@@ -17,7 +17,7 @@ app.get('/v1/card', function (req, res) {
            }});
 });
 
-app.post('/callback', function (req, res) { 
+app.post('/v1/card/:id', function (req, res) { 
 
 var body = '';
  req.on('data', function (data) {
