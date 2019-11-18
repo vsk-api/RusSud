@@ -9,7 +9,7 @@ app.get('/', function (req, res) {
 });
  
 
-app.get('/send', function (req, res) {
+app.get('/v1/card', function (req, res) {
  sendM('sirik@vsk.ru', 'test', res); 
 });
 
