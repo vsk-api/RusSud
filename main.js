@@ -10,8 +10,11 @@ app.get('/', function (req, res) {
  
 
 app.get('/v1/card', function (req, res) {
- sendM('sirik@vsk.ru', 'test', res); 
- res.send('{ "card": { "cardnumber": "1234567890" }}');
+ //sendM('sirik@vsk.ru', 'test', res); 
+ res.json({ "card": 
+           { "cardNumber": "1234567890",
+           "cardState": "active" 
+           }});
 });
 
 app.post('/callback', function (req, res) { 
