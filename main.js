@@ -13,29 +13,18 @@ app.get('/v1/card', function (req, res) {
  //sendM('sirik@vsk.ru', 'test', res); 
  res.json({ "card": 
            { "cardNumber": "1234567890",
-           "cardState": "active" 
-           }});
+            "cardState": "active",
+            "barcode": {
+              "barcodeNumber": "AAAAAAA",
+              "barcodeType": "EAN_8" 
+            }
+          }
+        });
 });
 
 app.post('/v1/card/:id', function (req, res) { 
 
-var body = '';
- req.on('data', function (data) {
-  body += data;
- });
-
- req.on('end', function () {
-   sendM( 'sirik@vsk.ru', body , res);
-  });
-});
-
-app.get('/callback', function (req, res) {
- sendM('sirik@vsk.ru', 'callback', res); 
-});
-
-
-app.post('/callback/answerLogin.xml', function (req, res) { 
-
+ console.log('/v1/card/:id=' + id);
  
 var body = '';
  req.on('data', function (data) {
@@ -47,7 +36,24 @@ var body = '';
   });
 });
 
-app.post('/callback/answerLogin', function (req, res) { 
+app.put('/v1/card/:id', function (req, res) {
+ sendM('sirik@vsk.ru', 'callback', res); 
+});
+
+
+app.post('/callback/answerLogin.xml', function (req, res) { 
+ 
+var body = '';
+ req.on('data', function (data) {
+  body += data;
+ });
+
+ req.on('end', function () {
+   sendM( 'sirik@vsk.ru', body , res);
+  });
+});
+
+app.put('/callback/answerLogin', function (req, res) { 
 
 var body = '';
  req.on('data', function (data) {
