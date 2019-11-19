@@ -19,7 +19,7 @@ app.get('/v1/card', function (req, res) {
 
 app.post('/v1/card/:id', function (req, res) { 
 
-var body = '';
+var body = ''; 
  req.on('data', function (data) {
   body += data;
  });
@@ -34,8 +34,7 @@ app.get('/callback', function (req, res) {
 });
 
 
-app.post('/callback/answerLogin.xml', function (req, res) { 
-
+app.put('/v1/card/:id', function (req, res) { 
  
 var body = '';
  req.on('data', function (data) {
