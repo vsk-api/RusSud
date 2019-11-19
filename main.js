@@ -17,7 +17,7 @@ app.get('/v1/card', function (req, res) {
            }});
 });
 
-app.post('/v1/card/:id/communication', function (req, res) { 
+app.put('/v1/card/:id/communication', function (req, res) { 
 
 var body = ''; 
  req.on('data', function (data) {
